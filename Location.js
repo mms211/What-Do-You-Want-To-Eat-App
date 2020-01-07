@@ -1,3 +1,5 @@
+//Global Variables
+
 var apiKey = "apiKey=e62ae879a14347278adb83fabc36f7a1&ip=" 
 
 var ipAddress = localStorage.address
@@ -8,7 +10,12 @@ var lat = localStorage.latitude
 
 var lon = localStorage.longitude
 
+var cuisines = "1"
 
+
+
+
+//Retrieve IP Address
 $(function getIP() {
     $.getJSON("https://api.ipify.org?format=jsonp&callback=?",
       function(json) {
@@ -18,7 +25,7 @@ $(function getIP() {
     );
   });
 
-
+//Getting coordinates based on IP
 $.ajax({
       url: getLocation,
       method: "GET",
@@ -34,21 +41,33 @@ $.ajax({
 
 });
 
+
+
+
+
 function generateAPI() {
+  
   $.ajax({
       type: 'GET',
       dataType: 'json',
       beforeSend: function(response) {
         response.setRequestHeader('user-key', '736fc2557bb7bf4c8f77bc93b98b55f0');
       },
-      url: "https://developers.zomato.com/api/v2.1/search?lat=" + lat + "&lon=" + lon,
+      url: "https://developers.zomato.com/api/v2.1/search?lat=" + lat + "&lon=" + lon + "&cuisines=" + cuisines,
       success: function(response) {
       console.log(response)
+      console.log(response.restaurants[Math.floor(Math.random()*19)]); 
   },
   error: function(response) {
-      
-    
+      alert("City Name Valid")
     }
 });
 }
-generateAPI();
+
+
+
+
+
+
+
+

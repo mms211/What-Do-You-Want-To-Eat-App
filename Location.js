@@ -56,7 +56,18 @@ function generateAPI() {
       url: "https://developers.zomato.com/api/v2.1/search?lat=" + lat + "&lon=" + lon + "&cuisines=" + cuisines,
       success: function(response) {
       console.log(response)
-      console.log(response.restaurants[Math.floor(Math.random()*19)]); 
+      console.log (response.restaurants[Math.floor(Math.random()*19)]);
+      var res = response.restaurants[Math.floor(Math.random()*19)]
+      var data = {}
+      data.name = res.restaurant.name
+      data.location = res.restaurant.location.address
+      data.avgCost = res.restaurant.average_cost_for_two
+      data.number = res.restaurant.phone_numbers
+
+
+      displayRes(data)
+      
+      
   },
   error: function(response) {
       alert("City Name Valid")
@@ -64,10 +75,16 @@ function generateAPI() {
 });
 }
 
+generateAPI()
 
 
+function displayRes(data) {
+ var infoHold = $("#ul")
 
-
-
-
+  for (let x in data) {
+    let li = $("<li>");
+    li.text(data[x])
+    infoHold.append(li)
+  }
+}
 

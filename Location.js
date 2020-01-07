@@ -1,4 +1,17 @@
 //Global Variables
+$(document).ready(function() {
+  
+  var cuisines = "none";
+  
+  $(".btn").click(function() {
+      cuisines = $(this).attr("value");
+  });
+   $(".btn").click(function() {
+
+    localStorage.value = cuisines
+
+  });
+}); 
 
 var apiKey = "apiKey=e62ae879a14347278adb83fabc36f7a1&ip=" 
 
@@ -10,11 +23,11 @@ var lat = localStorage.latitude
 
 var lon = localStorage.longitude
 
-var cuisines = "1"
+var cuisines = localStorage.value
 
+var searchButton = $("#srchBtn")
 
-
-
+console.log(cuisines)
 //Retrieve IP Address
 $(function getIP() {
     $.getJSON("https://api.ipify.org?format=jsonp&callback=?",
@@ -35,7 +48,7 @@ $.ajax({
 .then(function(response){
     
     console.log(response.latitude)
-  
+    console.log(response.longitude)
     localStorage.latitude = response.latitude
     localStorage.longitude = response.longitude
 
@@ -45,8 +58,8 @@ $.ajax({
 
 
 
-function generateAPI() {
-  
+(searchButton).on("click", function generateAPI() {
+  var cuisines = localStorage.value
   $.ajax({
       type: 'GET',
       dataType: 'json',
@@ -55,17 +68,16 @@ function generateAPI() {
       },
       url: "https://developers.zomato.com/api/v2.1/search?lat=" + lat + "&lon=" + lon + "&cuisines=" + cuisines,
       success: function(response) {
-      console.log(response)
-      console.log (response.restaurants[Math.floor(Math.random()*19)]);
       var res = response.restaurants[Math.floor(Math.random()*19)]
       var data = {}
       data.name = res.restaurant.name
       data.location = res.restaurant.location.address
       data.avgCost = res.restaurant.average_cost_for_two
       data.number = res.restaurant.phone_numbers
-
-
+      
       displayRes(data)
+
+       
       
       
   },
@@ -73,20 +85,56 @@ function generateAPI() {
       alert("City Name Valid")
     }
 });
-}
-
-generateAPI()
+});
 
 
 function displayRes(data) {
- var infoHold = $("#ul")
-
-  for (let x in data) {
-    let li = $("<li>");
-    li.text(data[x])
-    infoHold.append(li)
-  }
+    $("#name").html(data.name)
+    $("#address").html(data.location)
+    $("#avgCost").html(data.avgCost)
+    $("#number").html(data.number)
 }
+
+
+
+// Button Variables
+var choseChinese = $("#25").text()
+var choseItalian = $("#55").text()
+var choseMexican = $("#73").text()
+var choseThai = $("#95").text()
+var choseAmerican = $("#1").text()
+
+$("#25").on('click', function(){
+  $(".dropbtn").html(choseChinese)
+})
+
+$("#55").on('click', function(){
+  $(".dropbtn").html(choseItalian)
+})
+
+$("#73").on('click', function(){
+  $(".dropbtn").html(choseMexican)
+})
+
+$("#95").on('click', function(){
+  $(".dropbtn").html(choseThai)
+})
+
+$("#1").on('click', function(){
+  $(".dropbtn").html(choseAmerican)
+})
+
+
+
+//Hide DropDown
+$(".btn").on('click', function(){
+  $("#optionList").css("display", "none")
+})
+
+//Show Dropdown
+$(".dropbtn").on('click', function(){
+  $("#optionList").css("display", "block")
+})
 
 
 

@@ -11,7 +11,7 @@ $(document).ready(function() {
     localStorage.value = cuisines
 
   });
-}); 
+
 
 var apiKey = "apiKey=e62ae879a14347278adb83fabc36f7a1&ip=" 
 
@@ -30,9 +30,10 @@ var searchButton = $("#srchBtn")
 console.log(cuisines)
 //Retrieve IP Address
 $(function getIP() {
-    $.getJSON("https://api.ipify.org?format=jsonp&callback=?",
+    $.getJSON("https://api6.ipify.org?format=jsonp&callback=?",
       function(json) {
         console.log(json.ip) ;
+        console.log(json)
         localStorage.address = (json.ip)
       }
     );
@@ -55,9 +56,6 @@ $.ajax({
 });
 
 
-
-
-
 (searchButton).on("click", function generateAPI() {
   var cuisines = localStorage.value
   $.ajax({
@@ -70,6 +68,7 @@ $.ajax({
       success: function(response) {
       var res = response.restaurants[Math.floor(Math.random()*19)]
       var data = {}
+      console.log(res)
       data.name = res.restaurant.name
       data.location = res.restaurant.location.address
       data.avgCost = res.restaurant.average_cost_for_two
@@ -90,7 +89,8 @@ $.ajax({
 
 function displayRes(data) {
     $("#name").html(data.name)
-    $("#address").html(data.location)
+    $("#address").html( "Address: " + data.location)
+    $("#address").attr("href", "https://www.google.com/search?q=" + data.location + " " + data.name)
     $("#avgCost").html(data.avgCost)
     $("#number").html(data.number)
 }
@@ -137,4 +137,4 @@ $(".dropbtn").on('click', function(){
 })
 
 
-
+}); 

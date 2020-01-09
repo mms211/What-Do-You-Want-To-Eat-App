@@ -91,9 +91,10 @@ function displayRes(data) {
     $("#name").html(data.name)
     $("#address").html( "Address: " + data.location)
     $("#address").attr("href", "https://www.google.com/search?q=" + data.location + " " + data.name)
-    $("#avgCost").html(data.avgCost)
+    $("#avgCost").html("Average cost for two people: $" + data.avgCost)
     $("#number").html(data.number)
 }
+
 
 
 

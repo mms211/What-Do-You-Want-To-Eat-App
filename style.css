@@ -1,13 +1,21 @@
+html, body {height: 100%;}
+
+#a {
+  height: 70%;
+  background-color: purple;
+}
+
 #x {
   background-color: #DB2763;
+  height: 30%;
 }
 #y {
   background-color: #B0DB43;
-  width: 40%;
+  
 }
 #z {
   background-color: #12EAEA;
-  width: 40%;
+  
 }
 label {
   margin-left: 25px;

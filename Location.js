@@ -94,8 +94,4 @@ function displayRes(data) {
     $("#avgCost").html("Average cost for two people: $" + data.avgCost)
     $("#number").html(data.number)
 }
-
-
-
-
 }); 

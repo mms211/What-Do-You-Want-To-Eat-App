@@ -97,44 +97,5 @@ function displayRes(data) {
 
 
 
-// Button Variables
-var choseChinese = $("#25").text()
-var choseItalian = $("#55").text()
-var choseMexican = $("#73").text()
-var choseThai = $("#95").text()
-var choseAmerican = $("#1").text()
-
-$("#25").on('click', function(){
-  $(".dropbtn").html(choseChinese)
-})
-
-$("#55").on('click', function(){
-  $(".dropbtn").html(choseItalian)
-})
-
-$("#73").on('click', function(){
-  $(".dropbtn").html(choseMexican)
-})
-
-$("#95").on('click', function(){
-  $(".dropbtn").html(choseThai)
-})
-
-$("#1").on('click', function(){
-  $(".dropbtn").html(choseAmerican)
-})
-
-
-
-//Hide DropDown
-$(".btn").on('click', function(){
-  $("#optionList").css("display", "none")
-})
-
-//Show Dropdown
-$(".dropbtn").on('click', function(){
-  $("#optionList").css("display", "block")
-})
-
 
 }); 

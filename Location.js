@@ -55,7 +55,7 @@ $(document).ready(function () {
       var cityHeader = $("<h1>").html(response.city)
       cityHeader.addClass("cityHeader")
       console.log(cityHeader)
-      $(".grid-x.grid-frame").append(cityHeader)
+      $(".cityHeadContainer").append(cityHeader)
 
 
     });

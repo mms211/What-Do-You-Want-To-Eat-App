@@ -1,32 +1,22 @@
 //Global Variables
 $(document).ready(function () {
-
   var cuisines = "none";
-
   $(".btn").click(function () {
     cuisines = $(this).attr("value");
   });
   $(".btn").click(function () {
-
     localStorage.value = cuisines
-
   });
-
-
   var apiKey = "apiKey=e62ae879a14347278adb83fabc36f7a1&ip="
-
   var ipAddress = localStorage.address
-
   var getLocation = "https://api.ipgeolocation.io/ipgeo?" + apiKey + ipAddress
-
   var lat = localStorage.latitude
-
   var lon = localStorage.longitude
-
   var cuisines = localStorage.value
-
   var searchButton = $("#srchBtn")
-
+  var leftContainer = $(".leftContainer")
+  $("#img").empty()
+  $(".leftContainer").remove()
   console.log(cuisines)
   //Retrieve IP Address
   $(function getIP() {
@@ -38,16 +28,13 @@ $(document).ready(function () {
       }
     );
   });
-
   //Getting coordinates based on IP
   $.ajax({
     url: getLocation,
     method: "GET",
     dataType: 'JSON',
   })
-
     .then(function (response) {
-
       console.log(response.latitude)
       console.log(response.longitude)
       localStorage.latitude = response.latitude
@@ -55,16 +42,13 @@ $(document).ready(function () {
       var cityHeader = $("<h1>").html(response.city)
       cityHeader.addClass("cityHeader")
       console.log(cityHeader)
-      $(".grid-x.grid-frame").append(cityHeader)
-
-
+      $(".cityHeadContainer").append(cityHeader)
     });
-
-
   (searchButton).on("click", function generateAPI() {
     var cuisines = localStorage.value
     // $(".grid-x.grid-frame").remove(cityHeader)
-    $(".cityHeader").remove()
+    $(".cityHeadContainer").remove()
+    $(".float-left").append(leftContainer)
     $.ajax({
       type: 'GET',
       dataType: 'json',
@@ -80,20 +64,13 @@ $(document).ready(function () {
         data.location = res.restaurant.location.address
         data.avgCost = res.restaurant.average_cost_for_two
         data.number = res.restaurant.phone_numbers
-
         displayRes(data)
-
-
-
-
       },
       error: function (response) {
         alert("City Name Valid")
       }
     });
   });
-
-
   function displayRes(data) {
     $("#name").html(data.name)
     $("#address").html("Address: " + data.location)
@@ -101,4 +78,4 @@ $(document).ready(function () {
     $("#avgCost").html("Average cost for two people: $" + data.avgCost)
     $("#number").html(data.number)
   }
-}); 
+});

@@ -2,7 +2,7 @@ html, body {height: 100%;}
 #a {
   height: 65%;
   background-color: #054950;
-  padding-top: 8rem;
+  /* padding-top: 8rem; */
   align-items: center;
 }
 #x {
@@ -43,20 +43,49 @@ label {
   margin-left: 20%;
   margin-top: 15%;
 }
+.cityHeadContainer {
+  width: 100%;
+  text-align: center;
+}
+
+.cityHeader {
+  color: #F78F1E;
+  font-family: "Permanent Marker", cursive;
+  font-size: 10em;
+}
+/* .cityHeadContainer {
+  float: right;
+}
 .cityHeader {
   text-align: center;
   color: pink;
   margin: 0 auto;
   margin-top: 0;
   height: 10%;
-}
-#ul{
-  width: 100%;
+} */
+/* #ul{
+  width: 10%;
   padding: 10%;
-}
+} */
 #list {
  float: right;
  /* background-color: red ; */
 }
-
-
+.loader {
+  border: 16px solid #F3F3F3;
+  border-radius: 50%;
+  border-top: 16px solid #789A9F;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

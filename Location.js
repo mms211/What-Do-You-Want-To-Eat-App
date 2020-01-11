@@ -1,10 +1,12 @@
 //Global Variables
 $(document).ready(function () {
   var cuisines = "none";
-  $(".btn").click(function () {
-    cuisines = $(this).attr("value");
+  $("#cuisineSelect").click(function () {
+    cuisines = $(this).val();
+    console.log("CUISINE SELECTED")
+    console.log(cuisines)
   });
-  $(".btn").click(function () {
+  $("#cuisineSelect").click(function () {
     localStorage.value = cuisines
   });
   var apiKey = "apiKey=e62ae879a14347278adb83fabc36f7a1&ip="
@@ -14,18 +16,12 @@ $(document).ready(function () {
   var lon = localStorage.longitude
   var cuisines = localStorage.value
   var searchButton = $("#srchBtn")
-<<<<<<< HEAD
 
   var leftContainer = $(".leftContainer")
 
-  $("#img").empty()
+  // $("#foodImg").empty()
   $(".leftContainer").remove()
 
-=======
-  var leftContainer = $(".leftContainer")
-  $("#img").empty()
-  $(".leftContainer").remove()
->>>>>>> 2aff39fd14dd8a1d2ab784ade4e56da0f7dab79b
   console.log(cuisines)
   //Retrieve IP Address
   $(function getIP() {
@@ -59,6 +55,10 @@ $(document).ready(function () {
     // $(".grid-x.grid-frame").remove(cityHeader)
     $(".cityHeadContainer").remove()
     $(".float-left").append(leftContainer)
+    function loaderTimeout() {
+      setTimeout(function(){ $(".loader").remove(); }, 1000);
+    }
+    loaderTimeout()
 
     $.ajax({
       type: 'GET',
@@ -75,6 +75,8 @@ $(document).ready(function () {
         data.location = res.restaurant.location.address
         data.avgCost = res.restaurant.average_cost_for_two
         data.number = res.restaurant.phone_numbers
+        data.img = res.restaurant.featured_image
+        console.log(data.img)
         displayRes(data)
       },
       error: function (response) {
@@ -88,5 +90,10 @@ $(document).ready(function () {
     $("#address").attr("href", "https://www.google.com/search?q=" + data.location + " " + data.name)
     $("#avgCost").html("Average cost for two people: $" + data.avgCost)
     $("#number").html(data.number)
+    // var dataImg = 
+    $("#foodImg").attr("src",data.img)
+    // $(".float-left").append(dataImg)
+
+
   }
 });

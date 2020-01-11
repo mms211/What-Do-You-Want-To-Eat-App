@@ -2,7 +2,6 @@ html, body {height: 100%;}
 #a {
   height: 65%;
   background-color: #054950;
-  /* padding-top: 8rem; */
   align-items: center;
 }
 #x {
@@ -47,33 +46,19 @@ label {
   width: 100%;
   text-align: center;
 }
-
-<<<<<<< HEAD
-=======
 .cityHeader {
   color: #F78F1E;
   font-family: "Permanent Marker", cursive;
   font-size: 10em;
 }
 
->>>>>>> 2aff39fd14dd8a1d2ab784ade4e56da0f7dab79b
-/* .cityHeadContainer {
-  float: right;
-}
-.cityHeader {
-  text-align: center;
-  color: pink;
-  margin: 0 auto;
-  margin-top: 0;
-  height: 10%;
-} */
-/* #ul{
-  width: 10%;
-  padding: 10%;
-} */
 #list {
  float: right;
- /* background-color: red ; */
+ color: #FFFFFF;
+}
+a:link {
+  color: #FFFFFF;
+  text-decoration: none;
 }
 
 .loader {
@@ -95,5 +80,10 @@ label {
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+img {
+  height: 200px;
+  width: 200px;
+  margin: 1rem;
 }
 

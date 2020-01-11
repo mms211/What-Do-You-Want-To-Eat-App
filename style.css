@@ -2,7 +2,7 @@ html, body {height: 100%;}
 #a {
   height: 65%;
   background-color: #054950;
-  padding-top: 8rem;
+  /* padding-top: 8rem; */
   align-items: center;
 }
 #x {
@@ -43,6 +43,11 @@ label {
   margin-left: 20%;
   margin-top: 15%;
 }
+.cityHeadContainer {
+  width: 100%;
+  text-align: center;
+}
+
 /* .cityHeadContainer {
   float: right;
 }
@@ -61,10 +66,11 @@ label {
  float: right;
  /* background-color: red ; */
 }
+
 .loader {
   border: 16px solid #f3f3f3;
   border-radius: 50%;
-  border-top: 16px solid #3498db;
+  border-top: 16px solid #789A9F;
   width: 120px;
   height: 120px;
   -webkit-animation: spin 2s linear infinite; /* Safari */

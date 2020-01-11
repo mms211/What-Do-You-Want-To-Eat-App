@@ -53,6 +53,7 @@ label {
   font-family: "Permanent Marker", cursive;
   font-size: 10em;
 }
+
 /* .cityHeadContainer {
   float: right;
 }
@@ -71,6 +72,7 @@ label {
  float: right;
  /* background-color: red ; */
 }
+
 .loader {
   border: 16px solid #F3F3F3;
   border-radius: 50%;
@@ -80,12 +82,15 @@ label {
   -webkit-animation: spin 2s linear infinite; /* Safari */
   animation: spin 2s linear infinite;
 }
+
 /* Safari */
 @-webkit-keyframes spin {
   0% { -webkit-transform: rotate(0deg); }
   100% { -webkit-transform: rotate(360deg); }
 }
+
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+

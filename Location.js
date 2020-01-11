@@ -43,12 +43,14 @@ $(document).ready(function () {
       cityHeader.addClass("cityHeader")
       console.log(cityHeader)
       $(".cityHeadContainer").append(cityHeader)
+
     });
   (searchButton).on("click", function generateAPI() {
     var cuisines = localStorage.value
     // $(".grid-x.grid-frame").remove(cityHeader)
     $(".cityHeadContainer").remove()
     $(".float-left").append(leftContainer)
+
     $.ajax({
       type: 'GET',
       dataType: 'json',

@@ -27,6 +27,8 @@ $(document).ready(function () {
 
   var searchButton = $("#srchBtn")
 
+  $("#img").empty()
+
   console.log(cuisines)
   //Retrieve IP Address
   $(function getIP() {

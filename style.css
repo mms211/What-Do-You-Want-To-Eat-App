@@ -11,6 +11,7 @@ html, body {height: 100%;}
 }
 #z {
   background-color: #D5F1F5;
+  width: 100%;
 }
 label {
   margin-left: 25px;

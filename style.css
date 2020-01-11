@@ -48,12 +48,15 @@ label {
   text-align: center;
 }
 
+<<<<<<< HEAD
+=======
 .cityHeader {
   color: #F78F1E;
   font-family: "Permanent Marker", cursive;
   font-size: 10em;
 }
 
+>>>>>>> 2aff39fd14dd8a1d2ab784ade4e56da0f7dab79b
 /* .cityHeadContainer {
   float: right;
 }

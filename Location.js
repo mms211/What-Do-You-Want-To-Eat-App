@@ -14,9 +14,18 @@ $(document).ready(function () {
   var lon = localStorage.longitude
   var cuisines = localStorage.value
   var searchButton = $("#srchBtn")
+<<<<<<< HEAD
+
+  var leftContainer = $(".leftContainer")
+
+  $("#img").empty()
+  $(".leftContainer").remove()
+
+=======
   var leftContainer = $(".leftContainer")
   $("#img").empty()
   $(".leftContainer").remove()
+>>>>>>> 2aff39fd14dd8a1d2ab784ade4e56da0f7dab79b
   console.log(cuisines)
   //Retrieve IP Address
   $(function getIP() {

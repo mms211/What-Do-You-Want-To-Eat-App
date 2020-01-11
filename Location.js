@@ -27,7 +27,10 @@ $(document).ready(function () {
 
   var searchButton = $("#srchBtn")
 
+  var leftContainer = $(".leftContainer")
+
   $("#img").empty()
+  $(".leftContainer").remove()
 
   console.log(cuisines)
   //Retrieve IP Address
@@ -66,7 +69,9 @@ $(document).ready(function () {
   (searchButton).on("click", function generateAPI() {
     var cuisines = localStorage.value
     // $(".grid-x.grid-frame").remove(cityHeader)
-    $(".cityHeader").remove()
+    $(".cityHeadContainer").remove()
+    $(".float-left").append(leftContainer)
+
     $.ajax({
       type: 'GET',
       dataType: 'json',
